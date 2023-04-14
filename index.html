@@ -9,12 +9,32 @@
     <body>
         
         <div class="main-container">
-            <div class="card">
-                <p>Author: <span class="author">J.K. Rowling</span></p>
-                <p>Title: <span class="title">Harry Potter & The Sorceror's Stone</span></p>
-                <p># of Pages: <span class="pages">336</span></p>
-                <p>Read: <span class="readStatus">Yes</span></p>
-            </div>
+            
+        </div>
+
+        <form action="#" method="post">
+            <label for="author">Who is the author of the book?</label>
+            <input type="text" name="author" id="author" required>
+
+            <br>
+
+            <label for="title">What is the title of the book?</label>
+            <input type="text" name="title" id="title" required>
+
+            <br>
+
+            <label for="pages">How many pages does the book contain</label>
+            <input type="number" name="pages" id="pages" required>
+
+            <br>
+
+            <label for="readStatus">Have you read the book yet? Yes or No</label>
+            <input type="text" name="readStatus" id="readStatus">
+        </form>
+
+        <div class="button-container">
+            <button class="addBook">Add Book</button>
+            <button class="displayLibrary">Display Books</button>
         </div>
 
         <script src="./index.js"></script>
