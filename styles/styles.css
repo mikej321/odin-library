@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Raleway:wght@400;600&display=swap');
+
+:root {
+    --arvo: 'Arvo', serif;
+    --raleway: 'Raleway', sans-serif;
+    --reg-weight: 400;
+    --semi-weight: 600;
+    --bold-weight: 700;
+    --night: rgba(20, 20, 20, 1);
+    --rich-black: rgba(12, 24, 33, 1);
+    --oxford-blue: rgba(27, 42, 65, 1);
+    --charcoal: rgba(50, 74, 95, 1);
+    --lavender: rgba(204, 201, 220);
+    --magnolia: rgba(232, 230, 239, 1);
+    --rose: rgba(135, 80, 83, 1);
+    --olivine: rgba(165, 180, 82, 1);
+    --pine-green: rgba(19, 111, 99, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: grid;
+    grid-template-areas: "header"
+                         "main";
+    
+    max-width: 100vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 91vh;
+    color: var(--oxford-blue);
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        max-width: 1200px;
+        margin: 0 auto;
+        grid-template-rows: 100px 91vh;
+    }
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--charcoal);
+    color: rgba(232, 230, 239, 0.9);
+}
+
+header h1 {
+    font-size: 3rem;
+    font-family: var(--arvo);
+}
+
+@media screen and (min-width: 600px) {
+    header {
+        justify-content: unset;
+        padding-inline: 4rem;
+    }
+
+    header h1 {
+        font-size: 3.5rem;
+    }
+}
+
+.main-content {
+    grid-area: main;
+    background: rgba(232, 230, 239, 0.5);
+    display: grid;
+    padding-inline: 2rem;
+    justify-content: center;
+    padding-block: 2rem;
+}
+
+@media screen and (min-width: 600px) {
+    .main-content {
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: unset;
+        gap: 2rem;
+        padding-inline: 4rem;
+    }
+}
+
+.card {
+    width: 100%;
+    max-width: 30rem;
+    height: max-content;
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 4rem;
+    font-size: 1.6rem;
+    border: 1px solid var(--lavender);
+    border-radius: 8px;
+    box-shadow: 2px 1px 4px var(--charcoal);
+    z-index: 3;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.phaseOut {
+    opacity: 0;
+}
+
+@media screen and (min-width: 600px) {
+    .card {
+        min-width: 27rem;
+    }
+}
+
+.card p {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: -1rem;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 2rem;
+}
+
+.buttonContainer button {
+    width: 100%;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background: var(--oxford-blue);
+    color: rgba(232, 230, 239, 0.9);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttonContainer button:hover:nth-child(1) {
+    background: rgba(220, 50, 50, 1);
+    color: black;
+    scale: 1.1;
+}
+
+.buttonContainer button:hover:nth-child(2) {
+    background: rgb(248, 245, 56, 1);
+    color: black;
+    scale: 1.1;
+}
+
+@media screen and (min-width: 700px) {
+
+}
+
+.myForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    border: 1px solid var(--magnolia);
+    border-radius: 8px;
+    box-shadow: 2px 3px 7px var(--lavender);
+    transform: translate(-50% , -50%);
+    padding: 4rem 2rem;
+    width: 100%;
+    max-width: 40rem;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.formEl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.formEl label {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.formEl input:not(input[type="checkbox"]) {
+    border: none;
+    background: rgba(50, 74, 95, 0.2);
+    width: 100%;
+    font-size: 1.6rem;
+    padding-inline: 1rem;
+    max-width: 20rem;
+    height: 2.5rem;
+    border-radius: 4px;
+}
+
+.formEl input:not(input[type="checkbox"]).inputValid {
+    outline: 2px solid rgba(19, 190, 99, 1);
+}
+
+.formEl input[type="checkbox"] {
+    width: 100%;
+    max-width: 10rem;
+    height: 2rem;
+    margin-bottom: 2rem;
+}
+
+.addBook {
+    justify-self: center;
+    padding: 1rem 5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: var(--charcoal);
+    border: none;
+    color: rgba(232, 230, 239, 0.9);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.addBook:hover {
+    background: var(--olivine);
+    color: black;
+}
+
+.add {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 5rem;
+    background: var(--charcoal);
+    border: none;
+    color: rgba(232, 230, 239, 0.9);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.add:hover {
+    background: var(--olivine);
+    color: black;
+}
+
+footer {
+    display: none;
+}
+
+
+.error {
+    outline: 2px solid red;
+    border: none;
+}
+
+.errorP {
+    
+}
+
+.errorMessage {
+    height: 100%;
+    max-height: 0;
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+    bottom: 1rem;
+    font-size: 1.5rem;
+    transition: max-height 0.1s ease-in-out,
+                opacity 0.1s ease-in-out;
+}
+
+.errorMessage[data-active = 'true'] {
+    max-height: 2.5rem;
+    opacity: 1;
+    grid-column: 2 / span 2;
+    color: red;
+}
+
+
+
+
+
